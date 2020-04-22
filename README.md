@@ -1,6 +1,6 @@
 # Setting-up-SAM-ResNet-for-Dummies
 
-Simple, step-by-step instructions for setting up SAM-ResNet.
+Simple, step-by-step instructions for setting up SAM-ResNet on Windows 10.
 
 Author: Brenden Eum (Apr 2020)
 
