@@ -20,4 +20,8 @@ Everything will be done using Python and Command Prompt (PC) or terminal (Mac). 
 
 If you feel you do have a strong background in using terminals, you may be interested in using the instructions laid out in Cornia, Baraldi, Serra, and Cucchiara’s [README file](https://github.com/marcellacornia/sam). They are the original instructions followed by the author of this document, which assumes you are familiar with using terminals and are much more concise. The instructions found there are missing some steps needed for PC users.
 
-## Installing Everything You Need
+## Installing
+
+1. This first
+
+2.
