@@ -138,3 +138,19 @@ pip install libpython
 ```
 pip install m2w64-toolchain
 ```
+```
+pip install h5py
+```
+```
+pip install opencv-python
+```
+```
+pip install keras==1.1.0
+```
+Note: This must be Keras version 1.1.0. For Theano, I believe you can use other versions like 0.10b.0.
+```
+pip uninstall theano
+```
+```
+pip install theano==0.9.0
+```
