@@ -1,4 +1,4 @@
-# Setting-up-SAM-ResNet-for-Dummies
+# Installing and Using SAM-ResNet for Dummies
 
 Simple, step-by-step instructions for setting up SAM-ResNet on Windows 10.
 
@@ -19,3 +19,5 @@ This document will provide simple step-by-step instructions to get you up and ru
 Everything will be done using Python and Command Prompt (PC) or terminal (Mac). The instructions here are for PC, and I will interchange between saying “command prompt” and “terminal”. This is not the only way to set up SAM-ResNet (and not the most efficient way), but if you are unfamiliar with setting up your GPU to use for deep learning, I find that this may be one of the simplest ways. Once you get acquainted with this process, you might find more advanced setups on your own that can lead to faster processing.
 
 If you feel you do have a strong background in using terminals, you may be interested in using the instructions laid out in Cornia, Baraldi, Serra, and Cucchiara’s [README file](https://github.com/marcellacornia/sam). They are the original instructions followed by the author of this document, which assumes you are familiar with using terminals and are much more concise. The instructions found there are missing some steps needed for PC users.
+
+## Installing Everything You Need
