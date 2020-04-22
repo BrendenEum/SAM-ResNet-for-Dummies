@@ -20,7 +20,7 @@ Everything will be done using Python and Command Prompt (PC) or terminal (Mac). 
 
 If you feel you do have a strong background in using terminals, you may be interested in using the instructions laid out in Cornia, Baraldi, Serra, and Cucchiara’s [README file](https://github.com/marcellacornia/sam). They are the original instructions followed by the author of this document, which assumes you are familiar with using terminals and are much more concise. The instructions found there are missing some steps needed for PC users.
 
-## Installing
+## Section 1: Installing
 
 ### 1 Setting up a toolkit folder
 
@@ -128,16 +128,24 @@ We are creating an environment named "deep" (you can name it whatever you want).
 
 If you've installed other modules and packages in the past, this environment will not carry those over. Essentially, it's like creating a new sandbox with a version of Python of your choosing. 
 
+Make sure to activate the environment to use it:
+
+```
+conda activate deep
+```
+
 ### 10 Install necessary modules
 
 We need to install modules and packages for Python to use. Not only that, we need to make sure we are installing the correct versions for some of them. I'll just write out the code below. You might want to keep it in this order, since some of the packages will override previous versions otherwise. *ENTER ONE LINE AT A TIME*.
 
 ```
-pip install libpython
+conda install libpython
 ```
+When it asks you if you would like to proceed, enter "y".
 ```
-pip install m2w64-toolchain
+conda install m2w64-toolchain
 ```
+When it asks you if you would like to proceed, enter "y".
 ```
 pip install h5py
 ```
@@ -147,10 +155,94 @@ pip install opencv-python
 ```
 pip install keras==1.1.0
 ```
-Note: This must be Keras version 1.1.0. For Theano, I believe you can use other versions like 0.10b.0.
+Note: This must be Keras version 1.1.0
 ```
 pip uninstall theano
 ```
 ```
 pip install theano==0.9.0
 ```
+Note: For Theano, I believe you can use other versions like 0.10b.0
+
+### 11 Change the backend for Keras and optimizer for Theano
+
+Minimize Anaconda prompt for now. Go to your local user directory, e.g.
+
+```
+C:\users\*your username*\
+```
+
+Look for a folder titled ".keras". Inside, there is a "keras.json" file. Open that with a text editor.
+
+Replace the text with:
+
+```
+{
+    "floatx": "float32",
+    "epsilon": 1e-07,
+    "backend": "theano",
+    "image_dim_ordering": "th"
+}
+```
+
+Save and close that.
+
+Next, go back to your local user directory again. This time, create a new text file titled ".theanorc.txt". Make sure it has the period in front! Copy and paste this text inside:
+
+```
+[global]
+optimizer = fast_compile
+```
+
+Alternatively, you can replace "fast_compile" with "None" if you like, but I find that this works for me.
+
+Great! Now you should be ready to use SAM-ResNet with pretrained weights! In the next section, we will discuss how to use SAM-ResNet with pretrained weights. After that, we will discuss how to train SAM-ResNet with custom images.
+
+## Section 2: Using SAM-ResNet with Pretrained Weights
+
+### 1 Collect all your images into a folder
+
+Take all the images you want to generate a salience map for, and put them in one folder. Let's call the address to this folder *imgs address*.
+
+### 2 Navigate to SAM folder in terminal
+
+In the terminal, navigate to *sam folder*. You can use the “cd” command (“change directory”) to get there. 
+
+For instance, if *sam folder* is D:\toolkit.win\sam\, then simply type:
+
+```
+cd D:\toolkit.win\sam\
+```
+
+Note that if you are currently in a different drive on the terminal from the drive that *sam folder* is located on, you'll need to change drives before using "cd". For example, suppose the terminal tells me I'm currently in "C:\users\Brenden\" and my *sam folder* is in "D:\toolkits\". Then I'll need to enter these commands one after the other:
+```
+D:
+```
+```
+cd toolkit.win\sam\
+```
+
+### 3 Use SAM-ResNet
+
+Recall that we already downloaded weights into *weights folder* in the previous section. These are weights from a pretrained model, so we don't need to train SAM-ResNet. 
+
+To run the program, type:
+
+```
+python main.py test *imgs address*
+```
+where *imgs address* is the path to your images folder (e.g. "D:\images_for_sam_test\"). NOTE: *imgs address* MUST HAVE a "\" at the end of it!
+
+This line of code is telling the terminal to use this environment's version of Python to run main.py with two arguments, the first being "test" and the second being the path to the images folder. This code will search the current directory for a file named main.py, tell main.py that we are testing the model (not training), and where to look for images.
+
+Once you run the code, a few warnings will pop up. Don't worry about those. After the first few seconds, you should see some output like:
+
+```
+Compiling SAM-ResNet
+Loading SAM-ResNet weights
+Predicting saliency maps for *imgs address*
+```
+
+The code should take a few seconds per image to run (maybe about 5 secs per image in the folder) from this point on.
+
+Once the code finishes running, check the "predictions" subfolder inside your *sam folder*. Your saliency maps should be there, with the same title as the original image!
