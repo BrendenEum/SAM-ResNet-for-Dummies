@@ -22,6 +22,6 @@ If you feel you do have a strong background in using terminals, you may be inter
 
 ## Installing
 
-1. This first
+### 1 Setting up a toolkit folder
 
-2.
+This first step is more of a stylistic choice, but I like to set aside a folder where I am going to install everything I need for deep learning. Preferably, you would place this in a drive with plenty of space (at least 30 GB of free space). For instance, I created a folder in my D: drive… D:\tookits. Let’s call this your *toolkit folder*.
