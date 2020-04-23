@@ -159,6 +159,7 @@ Note: This must be Keras version 1.1.0
 ```
 pip uninstall theano
 ```
+When it asks you if you would like to proceed, enter "y".
 ```
 pip install theano==0.9.0
 ```
