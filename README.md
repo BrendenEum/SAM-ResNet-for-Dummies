@@ -192,10 +192,17 @@ Next, go back to your local user directory again. This time, create a new text f
 
 ```
 [global]
-optimizer = fast_compile
+optimizer = None
 ```
 
-Alternatively, you can replace "fast_compile" with "None" if you like, but I find that this works for me.
+You might also want to go into *sam folder*, open up main.py with a text editor, and add near the beginning:
+
+```
+import theano
+theano.config.optimizer="None"
+```
+
+This is a bit overkill, but it just makes sure you're not using an optimizer.
 
 Great! Now you should be ready to use SAM-ResNet with pretrained weights! In the next section, we will discuss how to use SAM-ResNet with pretrained weights. After that, we will discuss how to train SAM-ResNet with custom images.
 
