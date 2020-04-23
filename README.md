@@ -192,14 +192,14 @@ Next, go back to your local user directory again. This time, create a new text f
 
 ```
 [global]
-optimizer = None
+optimizer = fast_compile
 ```
 
 You might also want to go into *sam folder*, open up main.py with a text editor, and add near the beginning:
 
 ```
 import theano
-theano.config.optimizer="None"
+theano.config.optimizer="fast_compile"
 ```
 
 This is a bit overkill, but it just makes sure you're not using an optimizer.
