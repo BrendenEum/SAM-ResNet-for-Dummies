@@ -239,7 +239,7 @@ To run the program, type:
 ```
 python main.py test *imgs address*
 ```
-where *imgs address* is the path to your images folder (e.g. "D:\images_for_sam_test\"). NOTE: *imgs address* MUST HAVE a "\" at the end of it!
+where *imgs address* is the path to your images folder (e.g. "D:\images_for_sam_test\"). NOTE: *imgs address* MUST HAVE a "\\" at the end of it!
 
 This line of code is telling the terminal to use this environment's version of Python to run main.py with two arguments, the first being "test" and the second being the path to the images folder. This code will search the current directory for a file named main.py, tell main.py that we are testing the model (not training), and where to look for images.
 
